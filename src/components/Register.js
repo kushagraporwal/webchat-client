@@ -23,7 +23,7 @@ const Register = () => {
             window.alert("Data is empty");
         }
         else{
-        const res= await fetch("/register", {
+        const res= await fetch("https://web-chat11.herokuapp.com/register", {
             method:"POST",
             headers:{
                 "Content-Type": "application/json"

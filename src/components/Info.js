@@ -15,7 +15,7 @@ const Info = (props) => {
         try{
             console.log('welcome');
             console.log(state);
-            const res= await fetch(`/${userid}/info`,{
+            const res= await fetch(`https://web-chat11.herokuapp.com/${userid}/info`,{
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -44,7 +44,7 @@ const Info = (props) => {
         
         try{
             console.log("Hello");
-            const res= await fetch(`/${name._id}/connection`,{
+            const res= await fetch(`https://web-chat11.herokuapp.com/${name._id}/connection`,{
                 method: "PUT",
                 headers: {
                     Accept: "application/json",
@@ -65,7 +65,7 @@ const Info = (props) => {
         
         try{
             console.log("Hello");
-            const res= await fetch(`/${name._id}/connection`,{
+            const res= await fetch(`https://web-chat11.herokuapp.com/${name._id}/connection`,{
                 method: "PATCH",
                 headers: {
                     Accept: "application/json",
@@ -96,7 +96,7 @@ const Info = (props) => {
         try{
             const finduser  = user1;
             console.log(user1);
-            const res= await fetch('/sendconn',{
+            const res= await fetch('https://web-chat11.herokuapp.com/sendconn',{
                 method: "POST",
                 headers: {
                     Accept: "application/json",
