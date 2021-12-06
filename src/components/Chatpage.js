@@ -17,7 +17,7 @@ const Chatpage = () => {
     const callinfo = async()=>{
         try{
             console.log('welcome2');
-            const res= await fetch(`https://web-chat11.herokuapp.com/${name1}/chat/${name2}`,{
+            const res= await fetch(`/${name1}/chat/${name2}`,{
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -32,7 +32,7 @@ const Chatpage = () => {
                 history.push('/login');
             }
             else{
-                const res3= await fetch(`https://web-chat11.herokuapp.com/${name1}/message/${name2}`,{
+                const res3= await fetch(`/${name1}/message/${name2}`,{
                     method: "GET",
                     headers: {
                         Accept: "application/json",
@@ -43,7 +43,7 @@ const Chatpage = () => {
                 const data3= await res3.json();
                 setdata3(data3);
             setdata(data);
-            const res2= await fetch(`https://web-chat11.herokuapp.com/${name1}/detail/${name2}`,{
+            const res2= await fetch(`/${name1}/detail/${name2}`,{
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -74,7 +74,7 @@ const Chatpage = () => {
         try{
             //console.log('welcome2');
             const message1  = message;
-            const res= await fetch(`https://web-chat11.herokuapp.com/${name1}/chat/${name2}`,{
+            const res= await fetch(`/${name1}/chat/${name2}`,{
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -105,7 +105,7 @@ const Chatpage = () => {
         
         try{
             console.log("Hello");
-            const res= await fetch(`https://web-chat11.herokuapp.com/${name._id}/delete`,{
+            const res= await fetch(`/${name._id}/delete`,{
                 method: "PUT",
                 headers: {
                     Accept: "application/json",

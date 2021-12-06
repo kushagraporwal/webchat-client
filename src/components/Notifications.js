@@ -9,7 +9,7 @@ const Notifications = () => {
     const callinfo = async()=>{
         try{
             console.log('welcome2');
-            const res= await fetch(`https://web-chat11.herokuapp.com/${name1}/notifications`,{
+            const res= await fetch(`/${name1}/notifications`,{
                 method: "GET",
                 headers: {
                     Accept: "application/json",
