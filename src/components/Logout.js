@@ -7,7 +7,7 @@ const Logout = () => {
     const history= useHistory();
     const callinfo = async()=>{
         try{
-            const res= await fetch('/logout',{
+            const res= await fetch('https://web-chat11.herokuapp.com/logout',{
                 method: "GET",
                 headers: {
                     Accept: "application/json",
