@@ -33,7 +33,8 @@ const Register = () => {
                 username:username,
                 password:password,
                 check:"OK"
-            })
+            }),
+            credentials: "include"
         });
         const data= await res.json();
         console.log('data of register is');

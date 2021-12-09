@@ -35,7 +35,8 @@ const Login = () => {
                 username:username,
                 password:password,
                 check:"OK"
-            })
+            }),
+            credentials: "include"
         });
         const data= await res.json();
         console.log(data);

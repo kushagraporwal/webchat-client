@@ -83,7 +83,8 @@ const Chatpage = () => {
                 body: JSON.stringify({
                     message1: message1,
                     check:"OK"
-                })
+                }),
+                credentials: "include"
             });
             const data= await res.json();
             

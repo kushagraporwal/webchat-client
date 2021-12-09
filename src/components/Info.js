@@ -105,7 +105,8 @@ const Info = (props) => {
                 body: JSON.stringify({
                     finduser: finduser,
                     check:"OK"
-                })
+                }),
+                credentials: "include"
             });
             const data= await res.json();
             console.log('req is');
