@@ -26,7 +26,7 @@ const Login = () => {
             window.alert("Data is empty");
         }
         else{
-        const res= await fetch("https://web-chat11.herokuapp.com/login", {
+        const res= await fetch("/login", {
             method:"POST",
             headers:{
                 "Content-Type": "application/json"
@@ -35,8 +35,7 @@ const Login = () => {
                 username:username,
                 password:password,
                 check:"OK"
-            }),
-            credentials: "include"
+            })
         });
         const data= await res.json();
         console.log(data);
@@ -60,20 +59,28 @@ const Login = () => {
     }
     return (
         <>
-        <h2>Login Page</h2>
+        <div className="container" id="login1">
+        <div className='blank'>
+
+    </div>
+    <div >
+        <h2 style={{textAlign: "center"}}>Login Page</h2>
     <form action="/login" method="POST" className="validated-form" noValidate>
-        <div classNmae="mb-3">
+        <div className="form-group" style={{marginTop: "4%"}}>
             <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" className="form-control" name="username" value={user.username} onChange={handleinput} required/>
+                <input type="text" id="username" className="form-control" style={{opacity: "0.6"}} name="username" value={user.username} onChange={handleinput} required/>
         </div>
-        <div className="mb-3">
+        <div className="form-group" style={{marginTop: "4%"}}>
             <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" className="form-control" name="password" value={user.password} onChange={handleinput} required/>
+                <input type="password" id="password" className="form-control" style={{opacity: "0.6"}} name="password" value={user.password} onChange={handleinput} required/>
         </div>
-        <div className="form-group form-button">
-        <input type="submit" name="submit" className="form-submit" value="Login" onClick={postdata}/>
+        <div className="form-group form-button" style={{textAlign: "center"}} >
+        <button type="submit" name="submit" className="btn btn-dark" value="Login" onClick={postdata} id="loginbt">Login</button>
     </div>
     </form>
+    <p style={{marginTop: "6%", textAlign: "center"}}>Dont have an account? <a href="/register">Register</a></p>
+</div>
+</div>
         </>
     )
 }

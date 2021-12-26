@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import img1 from '../images/reg1.jpg'
 import axios from 'axios'
 const Register = () => {
     const history= useHistory();
@@ -23,7 +24,7 @@ const Register = () => {
             window.alert("Data is empty");
         }
         else{
-        const res= await fetch("https://web-chat11.herokuapp.com/register", {
+        const res= await fetch("/register", {
             method:"POST",
             headers:{
                 "Content-Type": "application/json"
@@ -33,8 +34,7 @@ const Register = () => {
                 username:username,
                 password:password,
                 check:"OK"
-            }),
-            credentials: "include"
+            })
         });
         const data= await res.json();
         console.log('data of register is');
@@ -54,24 +54,38 @@ const Register = () => {
     
     return (
         <>
+        <div className='container' id='regcont'>
         <h1>Register</h1>
-        <form method="POST" class="validated-form" noValidate>
-    <div class="mb-3">
+        <div className='row'>
+        <div class="col-sm-5" style={{textAlign: 'center'}}>
+            <img src={img1} alt="" className='i1'/>
+        </div>
+        <div class="col-sm-7">
+        <form method="POST" class="validated-form" noValidate className='f1'>
+    <div class="form-group">
         <label for="email" class="form-label">Email </label>
-            <input type="email" id="email" class="form-control" name="email" value={user.email} onChange={handleinput} required/>
+            <input type="email" id="email" class="form-contr" name="email" value={user.email} onChange={handleinput} required/>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="username" class="form-label">Username</label>
-            <input type="text" id="username" class="form-control" name="username" value={user.username} onChange={handleinput} required/>
+            <input type="text" id="username" class="form-contr" name="username" value={user.username} onChange={handleinput} required/>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" class="form-control" name="password" value={user.password} onChange={handleinput} required/>
+            <input type="password" id="password" class="form-contr" name="password" value={user.password} onChange={handleinput} required/>
+    </div>
+    <div class="form-group">
+        <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-contr" required/>
     </div>
     <div className="form-group form-button">
-        <input type="submit" name="submit" className="form-submit" value="Register" onClick={postdata}/>
+        <button type="submit" name="submit"  className="btn btn-dark" id="regbt" value="Register" onClick={postdata}>Register</button>
     </div>
     </form>
+    <p className='par1'>Have an Account? <a href="/login">Login</a></p>
+    </div>
+    </div>
+    </div>
     </>
     )
 }
