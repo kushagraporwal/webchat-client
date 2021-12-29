@@ -172,21 +172,30 @@ var i=0;
 var j=0;
     return (
         <div>
+        <div className='container' style={{backgroundColor:'#EDF2F1'}}>
+        <div style={{marginLeft: 'auto', marginRight: 'auto', backgroundColor:'#EDF2F1', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'}}>
+        <div style={{marginLeft:'280px'}}>
             <h1>{username1} {username2}</h1>
             <form method="POST">
-        <textarea name="sentmessage" id="" cols="30" rows="10" value={message} onChange={handleinput}></textarea>
-        <button onClick={send}>Submit</button>
+        <textarea name="sentmessage" id="" cols="60" rows="4" value={message} onChange={handleinput} style={{marginTop:'10px', border: '5px solid black', borderRadius: '5px', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'}}></textarea>
+        <button className='btn btn-success' onClick={send} style={{marginLeft: '30px' ,marginBottom:'50px'}}><i class="fa fa-send"></i> Send <i class="fa fa-delete"></i></button>
         </form>
+        <div className='myBox3'>
         {ir3.map(name => (
-            <div>
-            <li>{user3[i++]}</li>
+            <div> {((name.reciever==name2&&name.del==false) ? <div className='user1'><p style={{fontSize:'15px'}}>{user3[i++]}</p>
             <li>{message2[j++]}</li>
-            <p>{name.time}  {(name.date)}</p>
-            <div>{((name.reciever==name2&&name.del==false) ? <form method="PUT"><input type="submit" name="submit" className="form-submit" value="Delete" onClick={()=>delet(name)}/></form> : <br/>)}</div>
+            <p style={{marginBottom:'0px'}}>{name.time}  {(name.date)}</p>
+            <div>{((name.del==false) ? <form method="PUT"><input type="submit" name="submit" className="form-submit" value="Delete" onClick={()=>delet(name)}/></form> : <div></div>)}</div>
+            <br/></div> : <div className='user2'> <p style={{fontSize:'15px', color:'#DA341A' ,fontWeight:'bold', marginBottom:'0px'}}>{user3[i++]}</p>
+            <p>{message2[j++]}</p>
+            <p style={{marginBottom:'0px'}}>{name.time}  {(name.date)}</p>
+            </div>)}
+            
             <br/>
             </div>
-      ))}
-       </div>
+      ))}</div>
+      </div></div>
+       </div></div>
     )
 }
 
