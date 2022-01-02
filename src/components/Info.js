@@ -156,38 +156,53 @@ const Info = (props) => {
     }
     return (
         <>
-        <h1>Info page</h1>
-        <h1>Hello {userdata.username}</h1>
-        <h1>Notifications</h1>
+        <div className='container-fluid' style={{background: '#DFF1F7', }}>
+        <h1 style={{fontSize: '30px'}}>Hello <span style={{fontSize: '40px', color: '#37CA0E', fontFamily: 'Secular One, sans-serif'}}>{userdata.username}</span></h1>
+        <div className="row" style={{marginTop: '50px',height:'525px'}}>
+            <div className="col-md-4" style={{borderRight: '7px solid black'}}>
+            <div style={{backgroundColor: '#CFD3D0', padding:'10px', borderRadius: '5px', border: '5px solid black', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>
+            <h1>Connections</h1>
+            <div className="myBox" id='style-1'>
+                {conn.map(name => (
+                    <div className='li1'>
+                <NavLink className="nav-link" to={`/chatpage/${userdata._id}/${name._id}`}>{name.username}</NavLink>
+                </div>
+            ))}
+            </div>
+            </div>
+        </div>
+        <div className="col-md-8" style={{justifyContent: 'center', marginTop: '100px'}}>
+        <div style={{display:'inline-block',backgroundColor: '#D3F88D', padding:'10px', borderRadius: '8px', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>
+        <h1 style={{marginLeft: '7px'}}>Notifications</h1>
+        <div className="myBox2">
         {noti2.map(name => (
             <div>
-        <li>{name}</li>
+        {name} <br/><br/>
         </div>
       ))}
-        <h1>Connections</h1>
-        {conn.map(name => (
-            <div>
-        <li>
-        <NavLink className="nav-link" to={`/chatpage/${userdata._id}/${name._id}`}>{name.username}</NavLink>
-        </li></div>
-      ))}
-      <form method="POST">
-        <input type="text" id="username" class="form-control" name="username" placeholder=" " value={user1} onChange={handleinput} required/>
-        <input type="submit" name="submit" className="form-submit" value="Send Request" onClick={send}/>
-    </form>
+      </div></div>
+      <div style={{display:'inline-block', marginLeft:'70px', backgroundColor:'#FCDEB0', padding: '10px', borderRadius:'7px', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}}>
       <h1>Incoming Requests</h1>
         {ir1.map(name => (<div>
             <li>{name.username}</li>
-            <form method="PUT">
-            <input type="submit" name="submit" className="form-submit" value="Accept" onClick={()=>accept(name)}/>
+            <form method="PUT" style={{display: 'inline-block', marginRight: '10px'}}>
+            <input type="submit" className='btn btn-success' name="submit" onClick={()=>accept(name)}/>
             </form>
-            <form method="PATCH">
-            <input type="submit" name="submit" className="form-submit" value="Decline" onClick={()=>decline(name)}/>
+            <form method="PATCH" style={{display: 'inline-block'}}>
+            <input type="submit" name="submit" className='btn btn-danger'value="Decline" onClick={()=>decline(name)}/>
             </form>
             </div>
       ))}
-      
-      
+            <div style={{marginTop: '100px'}}>
+            <h2>Send New Request</h2>
+      <form method="POST" >
+        <input type="text" id="username" class="form-control" name="username" placeholder=" " value={user1} onChange={handleinput} required/>
+        <input type="submit" name="submit" className="btn btn-dark" value="Send" onClick={send} style={{marginLeft: 'auto'}}/>
+    </form>
+    </div></div>
+      </div>
+      </div>
+      </div>
         </>
     )
 }
