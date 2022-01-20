@@ -26,7 +26,7 @@ const Login = () => {
             window.alert("Data is empty");
         }
         else{
-        const res= await fetch("/login", {
+        const res= await fetch("https://web-chat11.herokuapp.com/login", {
             method:"POST",
             headers:{
                 "Content-Type": "application/json"
@@ -35,7 +35,8 @@ const Login = () => {
                 username:username,
                 password:password,
                 check:"OK"
-            })
+            }),
+            credentials: "include"
         });
         const data= await res.json();
         console.log(data);
